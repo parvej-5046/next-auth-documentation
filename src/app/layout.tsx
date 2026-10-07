@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/config/site";
 import { fontVariables } from "@/styles/fonts";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "App",
-  description: "Next.js application.",
+  title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
+  description: siteConfig.description,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
