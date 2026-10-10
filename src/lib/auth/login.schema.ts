@@ -3,7 +3,7 @@ import * as z from "zod";
 // Docs (main, Learn course): https://nextjs.org/learn/dashboard-app/adding-authentication#adding-the-sign-in-functionality  (zod validation)
 // Docs (extra): https://authjs.dev/getting-started/authentication/credentials  ("Validating credentials")  ·  https://zod.dev
 export const loginSchema = z.object({
-  email: z.email().trim().toLowerCase(), // " A@X.com " → "a@x.com" (normalize)
+  email: z.string().trim().toLowerCase().pipe(z.email()), // " A@X.com " → "a@x.com" (normalize)
   password: z.string().min(1), // login-এ শুধু খালি নয় কি না; শক্তি যাচাই sign-up-এ
 });
 
