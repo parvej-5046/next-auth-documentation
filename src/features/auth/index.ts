@@ -1,4 +1,5 @@
 export { LoginForm } from "./components/login-form";
+export { LoginButton } from "./components/login-button";
 export { LogoutButton } from "./components/logout-button";
 
 /*

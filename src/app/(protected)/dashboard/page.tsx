@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import { LogoutButton } from "@/features/auth";
 import { auth } from "@/lib/auth/auth";
 
 // Docs (not in the Learn course): https://nextjs.org/docs/app/guides/authentication#server-components  (auth check in pages)
@@ -21,7 +20,6 @@ export default async function DashboardPage() {
           Admin area
         </Link>
       )}
-      <LogoutButton />
     </main>
   );
 }
