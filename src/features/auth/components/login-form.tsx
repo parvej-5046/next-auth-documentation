@@ -2,6 +2,8 @@
 
 import { useActionState } from "react";
 
+import { Button } from "@/components/ui/button";
+
 import { login } from "../actions";
 
 const inputClass = "rounded-md border border-foreground/20 bg-transparent px-3 py-2";
@@ -35,13 +37,10 @@ export function LoginForm() {
         </p>
       )}
 
-      <button
-        type="submit"
-        disabled={pending} // দুবার ক্লিক ঠেকায়
-        className="rounded-md bg-foreground px-3 py-2 font-medium text-background disabled:opacity-60"
-      >
+      {/* disabled={pending}: দুবার ক্লিক ঠেকায় */}
+      <Button type="submit" disabled={pending}>
         {pending ? "Signing in…" : "Sign in"}
-      </button>
+      </Button>
     </form>
   );
 }
