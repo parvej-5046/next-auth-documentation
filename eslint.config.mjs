@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import checkFile from "eslint-plugin-check-file";
 import importPlugin from "eslint-plugin-import";
 
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
@@ -111,6 +112,26 @@ const eslintConfig = defineConfig([
                 "Import a feature only through its public surface: @/features/<name>.",
             },
           ],
+        },
+      ],
+    },
+  },
+  {
+    // Naming law: every source file and folder is kebab-case (component files included).
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/**/*.d.ts"],
+    plugins: { "check-file": checkFile },
+    rules: {
+      "check-file/filename-naming-convention": [
+        "error",
+        { "**/*.{ts,tsx}": "KEBAB_CASE" },
+        { ignoreMiddleExtensions: true },
+      ],
+      "check-file/folder-naming-convention": [
+        "error",
+        // kebab-case, plus Next.js route syntax: (group), [id], [...slug], [[...slug]].
+        {
+          "src/**/": "+([a-z0-9])*(-+([a-z0-9]))|\\(+([a-z0-9])*(-+([a-z0-9]))\\)|\\[*\\]",
         },
       ],
     },

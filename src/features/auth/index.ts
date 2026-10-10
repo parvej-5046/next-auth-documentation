@@ -1,5 +1,5 @@
-export { LoginForm } from "./components/LoginForm";
-export { LogoutButton } from "./components/LogoutButton";
+export { LoginForm } from "./components/login-form";
+export { LogoutButton } from "./components/logout-button";
 
 /*
 ────────────────────────── ব্যাখ্যা (বাংলায়) ──────────────────────────

@@ -99,7 +99,7 @@ src/
 ├── features/auth/
 │   ├── actions.ts                          ← ধাপ ৮
 │   ├── index.ts                            ← ধাপ ৯
-│   └── components/{LoginForm,LogoutButton}.tsx   ← ধাপ ৯
+│   └── components/{login-form,logout-button}.tsx   ← ধাপ ৯
 └── app/
     ├── page.tsx                            ← ধাপ ১০
     ├── api/auth/[...nextauth]/route.ts     ← ধাপ ৬
@@ -529,7 +529,7 @@ export async function logout() {
 **লক্ষ্য:** form ও বাটন।
 
 ```tsx
-// src/features/auth/components/LoginForm.tsx
+// src/features/aut./components/login-form.tsx
 "use client"; // useActionState একটা hook, তাই client component; আসল কাজ server action-এ
 
 import { useActionState } from "react";
@@ -580,7 +580,7 @@ export function LoginForm() {
 ```
 
 ```tsx
-// src/features/auth/components/LogoutButton.tsx
+// src/features/aut./components/logout-button.tsx
 import { logout } from "../actions";
 
 // Docs (main, Learn course): https://nextjs.org/learn/dashboard-app/adding-authentication#adding-the-logout-functionality
@@ -598,8 +598,8 @@ export function LogoutButton() {
 
 ```ts
 // src/features/auth/index.ts
-export { LoginForm } from "./components/LoginForm";
-export { LogoutButton } from "./components/LogoutButton";
+export { LoginForm } from "./components/login-form";
+export { LogoutButton } from "./components/logout-button";
 ```
 
 **ব্যাখ্যা — `LoginForm`**
